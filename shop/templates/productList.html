@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	{% if products %}
+		<div class="btn-group">
+			<button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Sort by
+			</button>
+			<div class="dropdown-menu">
+				<small class="dropdown-item">Price</small>
+				<small class="dropdown-item">Name</small>
+				<small class="dropdown-item">Newest</small>
+			</div>
+		</div>
+		{% for row in products %}
+			<div class="row justify-content-md-center text-center">
+				{% for p in row %}
+					<div calss="col">
+						<img src="{{p.image_link}}">
+						<h3>{{ p.name }}</h3>
+						<small>
+							{% if p.discount > 0 %}
+								<s>{{p.price}}$</s> {{p.discount}}$
+							{% else %}
+								{{p.price}}$
+							{% endif %}
+						</small>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>No products are available.</p>
+	{% endif %}
+{% endblock %}
