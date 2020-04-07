@@ -19,7 +19,7 @@ from django.urls import include, path
 from . import frontpage
 
 urlpatterns = [
-	path('', frontpage.main, name='main'),
+	path('', include("mainsite.urls")),
     path('shop/', include('shop.urls')),
     path('admin/', admin.site.urls),
 ]

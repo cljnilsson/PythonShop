@@ -16,14 +16,15 @@ def split(arr, size):
      return arrs
 
 def main(request, section):
-	products = Product.objects.filter(product_type=section).order_by('name')[:5]
+	products = Product.objects.filter(product_type=section).order_by('name')
 	template = loader.get_template('productList.html')
 
 	ordered = split(products, 3)
 	context = {}
 	if len(products) > 0:
 		context = {
-			'products': ordered
+			'products': ordered,
+			"section": section
 		}
 	
 	return HttpResponse(template.render(context, request))

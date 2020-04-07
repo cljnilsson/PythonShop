@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-	{% if products %}
-		bababa
+	{% if product %}
+		<a href="/shop/{{section}}">back</a>
+		<h3>bababa {{product.name}}<h3>
+		<img src="{{product.image_link}}">
+
 	{% else %}
 		<p>Error, invalid product</p>
 	{% endif %}

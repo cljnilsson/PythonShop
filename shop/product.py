@@ -5,8 +5,12 @@ from django.http import HttpResponse
 from .models import Product
 
 def main(request, section, product):
-	products = Product.objects.filter(product_type=section, name=product)[:1]
+	product = Product.objects.filter(product_type=section, id=product)[:1]
 	template = loader.get_template('product.html')
-	context = {}
-	
+
+	context = {
+		"product": product[0],
+		"section": section
+	}
+
 	return HttpResponse(template.render(context, request))

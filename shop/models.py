@@ -7,7 +7,7 @@ class ProductType(Enum):
 	ECOCLOTHES =2
 
 class Product(models.Model):
-	name 			= models.CharField(max_length=50, unique=True, primary_key=True)
+	name 			= models.CharField(max_length=50, unique=True)
 	product_type 	= models.CharField(max_length=20)
 	image_link 		= models.CharField(max_length=200)
 	price 			= models.IntegerField(null=False)
