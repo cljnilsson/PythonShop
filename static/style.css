@@ -23,3 +23,16 @@ footer {
 	width: 64px;
 	height: 64px;
 }
+
+#campaign {
+	background-image: url(https://cdn.webrezpro.com/wp-content/uploads/elementor/thumbs/easter-ofu0ruc2vqw987vyt8d467pz8saxu0q54dq3e03z34.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 300px;
+}
+
+#campaign img {
+	width: auto;
+	height: auto;
+}
