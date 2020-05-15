@@ -19,6 +19,95 @@ footer {
  	bottom: 0;
 }
 
+.fadein {
+	animation-name: fadein;
+	animation-fill-mode: forwards;
+	animation-duration: 700ms;
+	animation-timing-function: ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+		transform: translateY(500px) perspective(400px) translateZ(-500px);
+	}
+	40% {
+		transform: perspective(400px) translateZ(-250px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translateY(0) perspective(400px) translateZ(0);
+
+	}
+}
+
+.search-box {
+	width: 450px;
+	height: 100px;
+	position: relative;
+  }
+  
+.input {
+	position: absolute;
+	top: 20px;
+	right: 50px;
+	box-sizing: border-box;
+	width: 0px;
+	height: 63px;
+	padding: 0 20px;
+	outline: none;
+	font-size: 18px;
+	border-radius: 50px;
+	color: #29313a;
+	border: 3px solid #343a40;
+	transition: all 0.8s ease;
+  }
+  
+  ::-webkit-input-placeholder {
+	/* Chrome/Opera/Safari */
+	color: #343a40;
+  }
+  ::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #343a40;
+  }
+  :-ms-input-placeholder {
+	/* IE 10+ */
+	color: #343a40;
+  }
+  :-moz-placeholder {
+	/* Firefox 18- */
+	color: #343a40;
+  }
+  
+  nav .btn {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background: #343a40;
+	border-radius: 50%;
+	right: 45px;
+	top: 10px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 80px;
+	font-size: 20px;
+	color: #fff;
+	transition: all 0.8s ease;
+  }
+  
+  .input.active {
+	width: 350px;
+	right: 100px;
+  }
+  
+  .btn.animate {
+	transform: rotate(-360deg);
+	right: 100px;
+  }
+
 #logo {
 	width: 64px;
 	height: 64px;

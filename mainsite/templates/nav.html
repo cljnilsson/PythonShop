@@ -2,14 +2,33 @@
 	<a class="navbar-brand" href="/"><img id="logo" src="https://s.starladder.com/uploads/team_logo/f/3/f/1/meta_tag_af63d324162bb26553c4a292bca422a9.png"></a>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="/shop/ecoclothes">Ecoclothes</a>
-			<a class="nav-item nav-link" href="/shop/house">Household</a>
+			{% if sections %}
+				{% for s in sections %}
+					<a class="nav-item nav-link" href="/shop/{{s.name}}">{{s.name}}</a>
+				{% endfor %}
+			{% endif %}
+
 		</div>
 	</div>
-	<div class="input-group w-25">
-		<input type="text" class="form-control" placeholder="...">
-		<div class="input-group-append">
-			<button class="btn btn-outline-dark" type="button">Search</button>
+	<div class="search-box">
+		<input type="text" placeholder="Search" class="input">
+		<div class="btn d-flex align-items-center justify-content-center">
+			<i class="fa fa-search" aria-hidden="true"></i>
 		</div>
 	</div>
 </nav>
+<script>
+	$(".btn").click(function(){
+		$(".input").toggleClass("active").focus;
+		$(this).toggleClass("animate");
+		$(".input").val("");
+	});
+
+	$(".input").on('keypress',function(e) {
+		if(e.which == 13) {
+			let q = $(this).val();
+			console.log(q);
+			window.location.href = `/shop/search?q=${q}`;
+		}
+	});
+</script>

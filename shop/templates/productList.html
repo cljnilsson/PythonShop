@@ -15,11 +15,11 @@
 		{% for row in products %}
 			<div class="row justify-content-md-center text-center">
 				{% for p in row %}
-					<div calss="col">
-						<a href="./{{section}}/{{p.id}}">
-							<img src="{{p.image_link}}">
-							<h3>{{ p.name }}</h3>
-						</a>
+					<div class="col fadein" style="opacity: 0; animation-delay: {% widthratio forloop.counter0 1 300 %}ms">
+							<a href="./{{p.product_type}}/{{p.id}}">
+								<img src="{{p.image_link}}">
+								<h3>{{ p.name }}</h3>
+							</a>
 						<small>
 							{% if p.discount > 0 %}
 								<s>{{p.price}}$</s> {{p.discount}}$
