@@ -49,6 +49,26 @@ footer {
 	position: relative;
   }
   
+.title {
+	font-family: Roboto,Arial !important;
+}
+
+.show {
+	display: flex !important;
+}
+
+.productheader {
+	display: inline-block;
+	color: white;
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+
+.productdropdown {
+	color: white;
+	float: right;
+}
+
 .input {
 	position: absolute;
 	top: 20px;

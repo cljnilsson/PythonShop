@@ -12,4 +12,39 @@
 			</div>
 		</div>
 	</div>
+	{% if sections %}
+		{% for s in sections %}
+			<div class="row">
+				<div class="col">
+					<div class="row" data-toggle="collapse" data-target="#multiCollapseExample-{{ s.id }}">
+						<div class="col bg-dark">
+							<h3 class="productheader"><strong class="title">⭐️{{s.name}}</strong></h3>
+							<span class="text-right"><i class="fas fa-caret-square-down fa-2x productdropdown"></i></span>
+						</div>
+					</div>
+					<div class="row mb-1 flex show" id="multiCollapseExample-{{ s.id }}">
+						{% for p in s.products %}
+							<div class="col">
+								<div class="text-center">
+									<a href="./{{p.product_type}}/{{p.id}}">
+										<img src="{{p.image_link}}">
+									</a>
+									<h4>{{ p.name }}</h4>
+								</div>
+
+								<div class="row">
+									<div class="col d-flex align-items-center">
+										<h5>{{p.price}}</h5>
+									</div>
+									<div class="col text-right">
+										<button class="btn btn-outline-dark">buy</button>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
 {% endblock %}
