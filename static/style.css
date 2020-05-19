@@ -69,6 +69,11 @@ footer {
 	float: right;
 }
 
+.colmar {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
 .input {
 	position: absolute;
 	top: 20px;
@@ -139,6 +144,7 @@ footer {
 	background-size: cover;
 	width: 100%;
 	height: 300px;
+	margin: 0 0 0 0 !important;
 }
 
 #campaign img {

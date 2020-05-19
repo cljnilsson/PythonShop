@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	{% if cart %}
+		{% for p in cart %}
+			<h3>{{ p.name }} - {{p.price}}</h3>
+		{% endfor %}
+		<button class="btn btn-lg btn-outline-dark">Buy</button>
+	{% else %}
+		<p>Cart does not contain any products</p>
+	{% endif %}
+{% endblock %}
