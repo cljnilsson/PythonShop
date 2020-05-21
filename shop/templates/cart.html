@@ -4,7 +4,7 @@
 	{% if cart %}
 		<table class="table">
 			<thead>
-				<tr>
+				<tr class="text-center">
 					<th scope="col">Product</th>
 					<th scope="col">Quantity</th>
 					<th scope="col">Price</th>
@@ -15,13 +15,13 @@
 				{% for p in cart %}
 					<tr>
 						<td>{{ p.name }}</td>
-						<td>1</td>
-						<td>{{p.price}}</td>
+						<td class="text-center">1</td>
+						<td class="text-center">{{p.price}}</td>
 					<tr>
 				{% endfor %}
 				<tr>
 					<td></td><td></td><td></td>
-					<td>{{total}}</td>
+					<td class="text-center">{{total}}</td>
 				<tr>
 			</tbody>
 		</table>

@@ -27,7 +27,7 @@
 						{% for p in s.products %}
 							<div class="col">
 								<div class="text-center">
-									<a href="./{{p.product_type}}/{{p.id}}">
+									<a href="/shop/{{p.product_type}}/{{p.id}}">
 										<img src="{{p.image_link}}">
 									</a>
 									<h4>{{ p.name }}</h4>
@@ -35,7 +35,13 @@
 
 								<div class="row">
 									<div class="col d-flex align-items-center">
-										<h5>{{p.price}}</h5>
+										<h5>
+											{% if p.discount > 0 %}
+												<s>{{p.price}}$</s> {{p.discount}}$
+											{% else %}
+												{{p.price}}$
+											{% endif %}
+										</h5>
 									</div>
 									<div class="col text-right">
 										<button class="btn btn-outline-dark" onclick="addToCart(this)">Add to cart</button>
@@ -66,6 +72,7 @@
 				</div>
 			</div>
 		</div>
+
 		<script>
 			function cookieExists(cookie) {
 				return document.cookie.indexOf(`${cookie}=`) != -1
