@@ -2,9 +2,29 @@
 
 {% block body %}
 	{% if cart %}
-		{% for p in cart %}
-			<h3>{{ p.name }} - {{p.price}}</h3>
-		{% endfor %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Product</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Price</th>
+					<th scope="col">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for p in cart %}
+					<tr>
+						<td>{{ p.name }}</td>
+						<td>1</td>
+						<td>{{p.price}}</td>
+					<tr>
+				{% endfor %}
+				<tr>
+					<td></td><td></td><td></td>
+					<td>{{total}}</td>
+				<tr>
+			</tbody>
+		</table>
 		<button class="btn btn-lg btn-outline-dark">Buy</button>
 	{% else %}
 		<p>Cart does not contain any products</p>

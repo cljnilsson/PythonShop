@@ -19,16 +19,19 @@ def split(arr, size):
      return arrs
 
 def main(request):
-	cart = json.loads(request.COOKIES.get("cart"))
-	print(type(cart))
+	cart = json.loads(request.COOKIES.get("cart", "{}"))
 	products = CampaignItem.objects.all()
 	template = loader.get_template('cart.html')
+	price = 0
 
-	# ordered = split(cart, 3)
+	for p in cart:
+		price += int(p["price"])
+
 	context = {}
 	if len(products) > 0:
 		context = {
-				'cart': cart	
+				'cart': cart,
+				"total": price
 			}
 
 	context.update(getContext())
