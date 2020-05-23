@@ -36,12 +36,11 @@
 								<div class="row">
 									<div class="col d-flex align-items-center">
 										<h5>
-											{% if p.discount > 0 %}
-												<s>{{p.price}}$</s> {{p.discount}}$
-											{% else %}
-												{{p.price}}$
-											{% endif %}
+											{{p.price}}
 										</h5>
+										{% if p.discount > 0 %}
+											<h5 class="ml-1"><s>{{p.discount}}$</s></h5>
+										{% endif %}
 									</div>
 									<div class="col text-right">
 										<button class="btn btn-outline-dark" onclick="addToCart(this)">Add to cart</button>
@@ -97,7 +96,7 @@
 			function addToCart(clicked) {
 				let p = $(clicked).parent().parent().siblings()[0];
 				let text = $($(p).children()[1]).text();
-				let price = $($($(clicked).parent().parent().children()[0]).children()[0]).text();
+				let price = $($($(clicked).parent().parent().children()[0]).children()[0])[0].innerText;
 
 				$('#exampleModal').modal('toggle');
 				$("#exampleModal .modal-body").empty();
