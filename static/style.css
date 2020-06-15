@@ -6,17 +6,11 @@ img {
 html {
 	background-color: grey;
 	background-image: url("bg.jpg");
+	background-size: cover;
 }
 
 main {
 	background-color: white;
-}
-
-footer {
-	position: absolute;
-	left: 50%;
-	transform: translate(-50% , -50%);
- 	bottom: 0;
 }
 
 .fadein {
@@ -157,4 +151,22 @@ footer {
 #campaign img {
 	width: auto;
 	height: auto;
+}
+
+@media (max-width: 768px) {
+	.container {
+		width: 100% !important;
+		max-width: none !important;
+	}
+
+	.search-box {
+		width: 250px;
+		height: 100px;
+		position: relative;
+	}
+
+	.input.active {
+		width: 200px;
+	}
+
 }
