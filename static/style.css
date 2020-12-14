@@ -3,6 +3,11 @@ img {
 	height: 200px;
 }
 
+#productPreview {
+	width: 400px;
+	height: 400px;
+}
+
 html {
 	background-color: grey;
 	background-image: url("bg.jpg");
@@ -140,7 +145,7 @@ main {
 }
 
 #campaign {
-	background-image: url(https://cdn.webrezpro.com/wp-content/uploads/elementor/thumbs/easter-ofu0ruc2vqw987vyt8d467pz8saxu0q54dq3e03z34.jpg);
+	background-image: url("/static/test.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;

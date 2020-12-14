@@ -20,7 +20,7 @@ def main(request, section):
 	products = Product.objects.filter(product_type=section).order_by('name')
 	template = loader.get_template('productList.html')
 
-	ordered = split(products, 3)
+	ordered = split(products, 4)
 	context = {}
 	if len(products) > 0:
 		context = {

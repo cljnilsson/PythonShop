@@ -18,15 +18,15 @@
 					<div class="col fadein" style="opacity: 0; animation-delay: {% widthratio forloop.counter0 1 300 %}ms">
 							<a href="./{{p.product_type}}/{{p.id}}">
 								<img src="{{p.image_link}}">
-								<h3>{{ p.name }}</h3>
+								<h5>{{ p.name }}</h5>
 							</a>
-						<small>
+						<p><b>
 							{% if p.discount > 0 %}
 								<s>{{p.price}}$</s> {{p.discount}}$
 							{% else %}
 								{{p.price}}$
 							{% endif %}
-						</small>
+						</b></p>
 					</div>
 				{% endfor %}
 			</div>

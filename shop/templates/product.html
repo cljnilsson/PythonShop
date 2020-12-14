@@ -12,7 +12,7 @@
 				</div>
 				<div class=" row">
 					<div class="col">
-						<img class="zoom"src="{{product.image_link}}">
+						<img id="productPreview" class="zoom"src="{{product.image_link}}">
 					</div>
 				</div>
 				<div class="row">
@@ -23,6 +23,14 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<button class="btn btn-outline-dark" onclick="addToCart(this)">Add to cart</button>
+			{% if product.discount > 0 %}
+				<h5 id="price" class="ml-1">{{product.price}}$ <s>{{product.discount}}$</s></h5>
+			{% else %}
+				<h5 id="price">{{product.price}}$</h5>
+			{% endif %}
 		</div>
 		<div class="row mt-3">
 			<div class="col">
@@ -35,7 +43,67 @@
 					<li>Cotton</li>
 				</ul>
 			</div>
-		</h3>
+		</div>
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Information</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function cookieExists(cookie) {
+				return document.cookie.indexOf(`${cookie}=`) != -1
+			}
+
+			function getCookie(cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+
+			function addToCart(clicked) {
+				let text = $("h2").text();
+				let price = $("#price").text();
+				price = price.split(" ")[1]; // Need to verify price server side as this can be edited otherwise
+				price = price.substring(0, price.length - 1);
+
+
+				$('#exampleModal').modal('toggle');
+				$("#exampleModal .modal-body").empty();
+				$("#exampleModal .modal-body").append(`<div class="alert alert-success" role="alert">Added ${text} to shopping cart!</div>`);
+
+				if(!cookieExists("cart")) {
+					document.cookie = `cart=[];path=/`;
+				}
+
+				let cart = JSON.parse(getCookie("cart"));
+				cart.push({id: 0, name: text, price: price}); //Potentially remove information in cookies in the future as it is a security flaw and could be exploited. Alternatively use cookie verification like JWT.
+				document.cookie = `cart=${JSON.stringify(cart)};path=/`;
+
+			}
+		</script>
 	{% else %}
 		<p>Error, invalid product</p>
 	{% endif %}
