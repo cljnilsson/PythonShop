@@ -22,9 +22,9 @@
 							</a>
 						<p><b>
 							{% if p.discount > 0 %}
-								<s>{{p.price}}$</s> {{p.discount}}$
+								<s>{{p.price}}{{currency}}</s> {{p.discount}}{{currency}}
 							{% else %}
-								{{p.price}}$
+								{{p.price}}{{currency}}
 							{% endif %}
 						</b></p>
 					</div>

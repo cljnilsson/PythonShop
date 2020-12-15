@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
+from django.conf import settings
 
 from .models import Product
 from mainsite.core import getContext
@@ -24,8 +25,9 @@ def main(request):
 	context = {}
 	if len(products) > 0:
 		context = {
-			'products': ordered		
-			}
+			'products': ordered,
+			"currency": settings.CURRENCY
+		}
 
 	context.update(getContext())
 	

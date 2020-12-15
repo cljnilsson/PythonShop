@@ -36,9 +36,9 @@
 								<div class="row">
 									<div class="col d-flex align-items-center justify-content-center">
 										{% if p.discount > 0 %}
-											<h5 class="ml-1">{{p.price}}$ <s>{{p.discount}}$</s></h5>
+											<h5 class="ml-1">{{p.price}}{{currency}} <s>{{p.discount}}{{currency}}</s></h5>
 										{% else %}
-											<h5>{{p.price}}$</h5>
+											<h5>{{p.price}}{{currency}}</h5>
 										{% endif %}
 									</div>
 								</div>

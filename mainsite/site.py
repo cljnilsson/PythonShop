@@ -2,13 +2,18 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
+from django.conf import settings
+
 from shop.models import Product
 from .core import getContext
+
+
 
 def main(request):
 	template = loader.get_template('front.html')
 
 	context = {
+		"currency": settings.CURRENCY
 	}
 
 	context.update(getContext())
