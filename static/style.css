@@ -3,7 +3,7 @@ img {
 	height: 200px;
 }
 
-#productPreview {
+.productPreview {
 	width: 400px;
 	height: 400px;
 }
