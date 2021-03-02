@@ -1,7 +1,6 @@
 ### Python Shop
-Web shop made in Django (python) for learning and demonstration purposes.
-It is meant to be designed as a web page an actual company would use.
-Although it does not have a payment system, only a UI to support such in theory.
+Web shop made in Django (python) due to me wanting to try it.  
+Intended as a simple base for a startup company. The main lacking feature being the payment system which I am not comfortable doing.
 
 ## Features
 * CRUD content management system, all sections and its products can be edited in a GUI.
